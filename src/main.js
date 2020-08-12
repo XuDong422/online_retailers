@@ -12,6 +12,13 @@ import './assets/css/index.css'
 import axios from 'axios'
 // 写入pai接口
 axios.defaults.baseURL = 'http://timemeetyou.com:8889/api/private/v1/';
+// axios拦截器
+axios.interceptors.request.use(config => {
+    config.headers.Authorization = window.localStorage.getItem('token');
+    return config
+}, err => {
+    console.log(err);
+});
 // 在vue的原型中挂载axios
 Vue.prototype.$http = axios;
 

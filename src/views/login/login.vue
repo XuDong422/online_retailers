@@ -98,7 +98,7 @@ export default {
         });
         // console.log(rest);
         // 将token数据存储在临时本地存储中
-        window.sessionStorage.setItem("token", rest.data.data.token);
+        window.localStorage.setItem("token", rest.data.data.token);
         this.$router.push("/home");
       });
     },

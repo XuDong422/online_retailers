@@ -4,3 +4,21 @@ body,
     margin: 0;
     padding: 0;
 }
+
+.el-breadcrumb {
+    /* 定义里底部多少 */
+    margin-bottom: 15px;
+    /* 定义面包屑导航栏的文字大小 */
+    font-size: 12px;
+}
+
+.el-card {
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1) !important;
+}
+
+.el-table {
+    /* 定义表格离顶部多少 */
+    margin-top: 15px;
+    /* 定义表格文字大小 */
+    font-size: 12px;
+}
