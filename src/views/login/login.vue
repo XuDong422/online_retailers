@@ -52,9 +52,9 @@ export default {
       // 登录表单的数据对象
       loginForm: {
         // 账户数据
-        username: "",
+        username: "admin",
         // 密码数据
-        password: "",
+        password: "123456",
       },
       // 验证表单规则对象
       // 注意这里的连个验证对象需要和loginForm的数据名保持一致，否则会出现不管正不正确都会提示错误信息
@@ -78,6 +78,8 @@ export default {
     refLogin() {
       // 将ref为loginRef里的输入框清空，如果自带有数值清空时会输入自带的数值 resetFields()是elementui的清空方法
       this.$refs.loginRef.resetFields();
+      this.loginForm.username = "";
+      this.loginForm.password = "";
     },
     // 按钮提交时
     logina() {
