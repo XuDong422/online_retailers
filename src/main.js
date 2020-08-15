@@ -9,6 +9,9 @@ import 'element-ui/lib/theme-chalk/index.css'
 import './assets/css/index.css'
 
 // 导入axios
+import TreeTable from 'vue-table-with-tree-grid'
+
+// 导入axios
 import axios from 'axios'
 // 写入pai接口
 axios.defaults.baseURL = 'http://timemeetyou.com:8889/api/private/v1/';
@@ -24,6 +27,8 @@ Vue.prototype.$http = axios;
 
 // 在vue中挂载ElementUI
 Vue.use(ElementUI);
+
+Vue.component('tree-table', TreeTable);
 
 // 这行代码的意思 是阻止显示生产模式的消息。
 Vue.config.productionTip = false

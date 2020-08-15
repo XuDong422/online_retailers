@@ -18,13 +18,13 @@ const users = () =>
 const roles = () =>
     import ('@/views/home/children/roles/roles.vue');
 const rights = () =>
-    import ('@/views/home/children/rights/rights.vue');
+    import ('@/views/home/children/roles/rights.vue');
 const goods = () =>
     import ('@/views/home/children/goods/goods.vue');
 const params = () =>
-    import ('@/views/home/children/params/params.vue');
+    import ('@/views/home/children/goods/params.vue');
 const categories = () =>
-    import ('@/views/home/children/categories/categories.vue');
+    import ('@/views/home/children/goods/categories.vue');
 const orders = () =>
     import ('@/views/home/children/orders/orders.vue');
 const reports = () =>
