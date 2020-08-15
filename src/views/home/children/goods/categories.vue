@@ -5,10 +5,10 @@
       <!-- path: '/'会改变到默认页面 如果:to="{ path: '/roles' }只会转到该页导航高亮不会改变,不会刷新 -->
       <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
       <!--  href="/users"刷新页面链接会改成 http://localhost:8080/www.baidu.com -->
+      <el-breadcrumb-item>商品管理</el-breadcrumb-item>
       <el-breadcrumb-item>
-        <a href="/users">商品管理</a>
+        <a href="/categories">商品分类</a>
       </el-breadcrumb-item>
-      <el-breadcrumb-item>商品分类</el-breadcrumb-item>
     </el-breadcrumb>
 
     <!-- 卡片视图 -->
@@ -82,7 +82,7 @@
       width="50%"
       @close="addCateDialogClosed"
     >
-    <!-- 对话框的表单 -->
+      <!-- 对话框的表单 -->
       <el-form
         :model="addCateForm"
         :rules="addCateFormRules"
@@ -115,7 +115,7 @@
       width="50%"
       @close="editDialogVisibleClose"
     >
-    <!-- 编辑分类表单内容 -->
+      <!-- 编辑分类表单内容 -->
       <el-form
         :model="editCateForm"
         :rules="editCateFormRules"
@@ -257,7 +257,7 @@ export default {
       });
       if (res.meta.status !== 200) {
         return this.$message.error(res.meta.msg);
-      };
+      }
       // 将data数据放进parentCateList
       this.parentCateList = res.data;
     },
@@ -271,7 +271,7 @@ export default {
       );
       if (res.meta.status !== 201) {
         return this.$message.error(res.meta.msg);
-      };
+      }
       this.$message.success(res.meta.msg);
 
       // 重新请求分类列表数据
@@ -279,7 +279,7 @@ export default {
       // 关闭请求数据
       this.addDialogVisible = false;
     },
-        // 选项发生变化时触发这个函数
+    // 选项发生变化时触发这个函数
     handleChange() {
       // 判断父级id数组长度是否大于0,如果大于0代表选中了父级分类
       if (this.selectKeys.length > 0) {
@@ -309,7 +309,7 @@ export default {
       const { data: res } = await this.$http.get(`categories/${row.cat_id}`);
       if (res.meta.status !== 200) {
         return this.$message.error(res.meta.msg);
-      };
+      }
       // 将data数据存入editCateForm
       this.editCateForm = res.data;
       this.editDialogVisible = true;
@@ -332,7 +332,7 @@ export default {
       const { data: res } = await this.$http.delete(`categories/${row.cat_id}`);
       if (res.meta.status !== 200) {
         return this.$message.error(res.meta.msg);
-      };
+      }
       this.$message.success(res.meta.msg);
       // 刷新数据
       this.getCateList();
@@ -351,7 +351,7 @@ export default {
       );
       if (res.meta.status !== 200) {
         return this.$message.error(res.meta.msg);
-      };
+      }
       this.$message.success(res.meta.msg);
       // 关闭对话框
       this.editDialogVisible = false;
