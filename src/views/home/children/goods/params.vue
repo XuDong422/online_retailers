@@ -281,7 +281,7 @@ export default {
         this.onlyTableData = [];
         this.manyTableData = [];
         return;
-      };
+      }
 
       // 请求参数列表
       const { data: res } = await this.$http.get(
@@ -292,7 +292,7 @@ export default {
       );
       if (res.meta.status !== 200) {
         return this.$message.error(res.meta.msg);
-      };
+      }
 
       // 把res.data目录下的数组中的attr_vals字符串转化成字符串数组
       res.data.forEach((item) => {
@@ -310,7 +310,7 @@ export default {
       } else {
         this.onlyTableData = res.data;
         // 请求参数列表成功
-      };
+      }
     },
     // 关闭添加参数对话框触发
     addDialogVisibleClose() {
@@ -332,7 +332,7 @@ export default {
           );
           if (res.meta.status !== 201) {
             return this.$message.error(res.meta.msg);
-          };
+          }
           this.$message.success(res.meta.msg);
           // 重新请求参数列表
           this.getParamsList();
@@ -352,7 +352,7 @@ export default {
       );
       if (res.meta.status !== 200) {
         return this.$message.error(res.meta.msg);
-      };
+      }
       // 将数据保存到修改参数对象中
       this.editForm = res.data;
       // 打开对话窗
@@ -378,7 +378,7 @@ export default {
           );
           if (res.meta.status !== 200) {
             return this.$message.error(res.meta.msg);
-          };
+          }
           this.$message.success(res.meta.msg);
           // 刷新参数
           this.getParamsList();
@@ -401,13 +401,13 @@ export default {
 
       if (confirm !== "confirm") {
         return this.$message.info("已取消删除！");
-      };
+      }
       const { data: res } = await this.$http.delete(
         `categories/${this.cateId}/attributes/${id}`
       );
       if (res.meta.status !== 200) {
         return this.$message.error(res.meta.msg);
-      };
+      }
       this.$message.success(res.meta.msg);
       // 重新请求参数列表
       this.getParamsList();
@@ -429,7 +429,7 @@ export default {
         row.inputValue = "";
         row.inputVisible = false;
         return;
-      };
+      }
       // 如果没有return， 将输入的内容添加到attr_vals中
       row.attr_vals.push(row.inputValue.trim());
       row.inputValue = "";

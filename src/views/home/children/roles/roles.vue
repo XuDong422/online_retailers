@@ -183,7 +183,7 @@ export default {
       addrules: {
         roleName: [
           { required: true, message: "请输入角色名", trigger: "blur" },
-          { min: 3, max: 15, message: "角色名长度在3-9位数", trigger: "blur" },
+          { min: 1, max: 15, message: "角色名长度在3-9位数", trigger: "blur" },
         ],
         roleDesc: [
           { required: true, message: "请输入描述", trigger: "blur" },
@@ -234,12 +234,10 @@ export default {
     // 在添加角色前预检验
     addUser() {
       this.$refs.addFormRef.validate(async (valid) => {
-        // console.log(this.addForm);
         if (!valid) return;
         // 验证通过时发起请求添加角色
         const { data: res } = await this.$http.post("roles", this.addForm);
         if (res.meta.status !== 201) {
-          console.log(res);
           this.$message.error("添加失败");
         } else {
           this.$message.success("添加成功");
@@ -427,7 +425,6 @@ export default {
       if (res.meta.status !== 200) {
         return this.$message.error("分配权限失败！");
       }
-
       this.$message.success("分配权限成功");
       // 刷新数据
       this.getRolesList();

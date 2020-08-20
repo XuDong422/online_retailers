@@ -326,7 +326,6 @@ export default {
         // 验证通过时发起请求添加用户
         const { data: res } = await this.$http.post("users", this.addForm);
         if (res.meta.status !== 201) {
-          console.log(res);
           this.$message.error("添加失败");
         } else {
           this.$message.success("添加成功");
@@ -360,7 +359,6 @@ export default {
       this.$refs.editFormRef.validate(async (valid) => {
         // 当确认验证不成功时，直接return
         if (!valid) return;
-        console.log(this.editForm);
         // 验证通过时发起修改用户请求
         const { data: res } = await this.$refs.editFormRef.$http.put(
           "users/" + this.editForm.id,
@@ -442,11 +440,12 @@ export default {
         return this.$message.error("请选择需要分配的角色");
       }
       // 将数据提交到数据库
-      const {
-        data: res,
-      } = await this.$http.put(`users/${this.usersInfo.id}/role`, {
-        rid: this.selectRoleId,
-      });
+      const { data: res } = await this.$http.put(
+        `users/${this.usersInfo.id}/role`,
+        {
+          rid: this.selectRoleId,
+        }
+      );
       if (res.meta.status !== 200) {
         return this.$message.error(res.meta.msg);
       }

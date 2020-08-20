@@ -100,7 +100,7 @@ export default {
         });
         // console.log(rest);
         // 将token数据存储在临时本地存储中
-        window.localStorage.setItem("token", rest.data.data.token);
+        window.sessionStorage.setItem("token", rest.data.data.token);
         this.$router.push("/home");
       });
     },
@@ -119,7 +119,6 @@ export default {
   // 登录框宽高
   width: 450px;
   height: 300px;
-  // 登录框背景色
   background-color: #fff;
   // 设置圆角5px;
   border-radius: 5px;
@@ -137,7 +136,6 @@ export default {
     border: 1px solid #eee;
     // 设置圆角边框
     border-radius: 50%;
-    // 设置内边距
     padding: 10px;
     // 设置阴影色：偏移 0 0 10px宽 白色
     box-shadow: 0 0 10px #ddd;
@@ -146,7 +144,6 @@ export default {
     left: 50%;
     // 移动图片框自身的-50%x, -50%y
     transform: translate(-50%, -50%);
-    // 设置图片框背景色
     background-color: #fff;
     img {
       // 设置图片宽高
@@ -154,7 +151,6 @@ export default {
       height: 100%;
       // 将图片切成圆形
       border-radius: 50%;
-      // 设置图片背景色
       background-color: #eee;
     }
   }
@@ -164,15 +160,12 @@ export default {
   position: absolute;
   // 设置底边距为0
   bottom: 0;
-  // 设置宽100%
   width: 100%;
-  // 设置表单区域边框
   padding: 0 15px;
   // 定义表单区域适应父元素
   box-sizing: border-box;
 }
 .btns {
-  // 将登录区弹性布局
   display: flex;
   // 设置对齐方式为容器尾部
   justify-content: flex-end;

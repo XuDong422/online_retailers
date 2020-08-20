@@ -1,5 +1,5 @@
 <template>
-  <el-container class="container">
+  <el-container>
     <!-- 头部区域 -->
     <el-header>
       <div>
@@ -12,13 +12,19 @@
       <el-button type="info" @click="logout">退出</el-button>
     </el-header>
     <!-- 页面主题部分 -->
-    <el-container>
+    <el-container class="container">
       <!-- 侧边栏 -->
       <el-aside :width="isCollapse ? ' 65px' : ' 200px'">
         <div class="toggle-button" @click="toggle">| | |</div>
         <!-- 侧边栏菜单区域 -->
-        <!-- unique-opened让导航栏只选择一个 也可以写成:unique-opened="true" -->
-        <el-menu :collapse="isCollapse" :collapse-transition="false" :unique-opened="true" :router="true" :default-active="dapath">
+        <!-- unique-opened让导航栏只选择一个其他收起 也可以写成:unique-opened="true" -->
+        <el-menu
+          :collapse="isCollapse"
+          :collapse-transition="false"
+          :unique-opened="true"
+          :router="true"
+          :default-active="dapath"
+        >
           <!-- 一级菜单1 -->
           <!-- 将存储的menuslist循环出来 因为index不能接收数字,加字符空形成字符串 -->
           <el-submenu :index="item.id + ''" v-for="item in menuslist" :key="item.id">
@@ -64,7 +70,7 @@ export default {
         103: "el-icon-s-check",
         101: "el-icon-menu",
         102: "el-icon-s-order",
-        145: "el-icon-receiving",
+        145: "el-icon-data-analysis",
       },
       // 二级菜单栏图标
       icoes: {
@@ -79,7 +85,7 @@ export default {
       },
       // 菜单栏收展判断
       isCollapse: false,
-      dapath:"/user",
+      dapath: "/user",
     };
   },
   // 一创建就加载
@@ -92,7 +98,7 @@ export default {
     // 退出登录
     logout() {
       // 将临时本地存储的token清除
-      window.localStorage.clear();
+      window.sessionStorage.clear();
       // 跳回login登录页
       this.$router.push("/login");
       // 弹出警告框 退出登录
@@ -116,13 +122,11 @@ export default {
 </script>
 <style lang="less" scoped>
 .container {
-  // 设置页面满宽
-  height: 100vh;
+  // 设置页面去掉顶栏60px;
+  height: calc(100vh - 60px);
 }
 .el-header {
-  // 设置头部背景色
   background-color: rgb(84, 92, 100);
-  // 设置flex布局
   display: flex;
   // 设计间距对齐
   justify-content: space-between;
@@ -140,7 +144,6 @@ export default {
     // 设置flex子项水平居中
     align-items: center;
     span {
-      // 15外边距
       margin-left: 15px;
     }
   }
@@ -164,8 +167,7 @@ export default {
   // 设置鼠标样式
   cursor: pointer;
   // 背景色
-  background-color: rgb(64,158,255);
-  // 设置div宽度
+  background-color: rgb(64, 158, 255);
   width: 100%;
   // 加一个1px的边框
   border-right: solid 1px #e6e6e6;

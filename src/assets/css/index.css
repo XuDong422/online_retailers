@@ -1,6 +1,7 @@
 html,
 body,
 #app {
+    /* 定义页面内外边距为0 */
     margin: 0;
     padding: 0;
 }
@@ -13,6 +14,7 @@ body,
 }
 
 .el-card {
+    /* 定义卡片视图的阴影部分 不使用!important优先级无法超过ui框架 */
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1) !important;
 }
 
